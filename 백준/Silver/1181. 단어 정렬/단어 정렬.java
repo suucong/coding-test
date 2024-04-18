@@ -27,6 +27,6 @@ public class Main {
         }
 
         // 출력
-        for (String str : list) if (!Objects.equals(str, ""))  System.out.println(str);
+        for (String str : list) System.out.println(str);
     }
 }
