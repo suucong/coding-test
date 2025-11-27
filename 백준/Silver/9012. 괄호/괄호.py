@@ -1,22 +1,19 @@
-n = int(input())
-datas = []
-for _ in range(n):
-    datas.append(input())
-
-def is_valid(s):
+def solution(str):
+    answer = "NO"
     stack = []
-    for ch in s:
-        if ch == '(':
-            stack.append(ch)
-        elif ch == ')':
-            if not stack:
-                return False
+    for c in str:
+        if c == '(':
+            stack.append(c)
+        elif c == ')' and len(stack) > 0:
             stack.pop()
-    if not stack:
-        return True
+        elif c == ')' and len(stack) == 0:
+            return answer
 
-for data in datas:
-    if is_valid(data):
-        print("YES")
-    else:
-        print("NO")
+    if len(stack) == 0:
+        answer = "YES"
+    return answer
+
+T = int(input())
+arr = [input() for _ in range(T)]
+for str in arr:
+    print(solution(str))
